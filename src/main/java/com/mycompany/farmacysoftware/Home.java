@@ -1,13 +1,17 @@
+package com.mycompany.farmacysoftware;
+
+import com.mycompany.farmacysoftware.Agg_Magazzino.AggiornaMagazzino;
+import com.mycompany.farmacysoftware.Autenticazione.Login;
+import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
+import com.mycompany.farmacysoftware.G_Scorte.GestioneScorte;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.farmacysoftware;
 
-import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
-import com.mycompany.farmacysoftware.Autenticazione.Login;
-import com.mycompany.farmacysoftware.Autenticazione.Login;
-import com.mycompany.farmacysoftware.Autenticazione.Login;
+
+
 
 /**
  *
@@ -34,24 +38,53 @@ public class Home extends javax.swing.JFrame {
         home_bottoneLogout = new javax.swing.JButton();
         home_benvenuto = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        GestionePrenotazione = new javax.swing.JButton();
+        GestioneScorte = new javax.swing.JButton();
+        AggiornaMagazzino = new javax.swing.JButton();
+        Notifiche = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         home_bottoneLogout.setText("Logout");
         home_bottoneLogout.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 home_bottoneLogoutActionPerformed(evt);
             }
         });
 
         home_benvenuto.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        home_benvenuto.setText("Benvenuto Utente_Farmacista");
+        home_benvenuto.setText("Benvenuto Farmacista");
 
-        jButton1.setText("Gestione Prenotazione");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        GestionePrenotazione.setText("Gestione Prenotazione");
+        GestionePrenotazione.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GestionePrenotazioneActionPerformed(evt);
+            }
+        });
+
+        GestioneScorte.setText("Gestione Scorte");
+        GestioneScorte.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestioneScorteActionPerformed(evt);
+            }
+        });
+
+        AggiornaMagazzino.setText("Aggiorna Magazzino");
+        AggiornaMagazzino.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AggiornaMagazzinoActionPerformed(evt);
+            }
+        });
+
+        Notifiche.setText("Notifiche");
+        Notifiche.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NotificheActionPerformed(evt);
             }
         });
 
@@ -59,34 +92,46 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(home_benvenuto)
-                        .addGap(113, 113, 113)
-                        .addComponent(home_bottoneLogout)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jButton1)
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(home_bottoneLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(home_benvenuto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)))
+                .addComponent(Notifiche)
+                .addGap(14, 14, 14))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(GestionePrenotazione, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AggiornaMagazzino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GestioneScorte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(home_benvenuto)
-                    .addComponent(home_bottoneLogout))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(home_benvenuto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Notifiche)
+                        .addComponent(home_bottoneLogout)))
                 .addGap(42, 42, 42)
-                .addComponent(jButton1)
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addComponent(GestionePrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(GestioneScorte, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AggiornaMagazzino, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,12 +143,26 @@ public class Home extends javax.swing.JFrame {
             this.setVisible(false);
     }//GEN-LAST:event_home_bottoneLogoutActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        new GestionePrenotazione().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
+    private void GestionePrenotazioneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionePrenotazioneActionPerformed
+            new GestionePrenotazione().setVisible(true);
+            this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_GestionePrenotazioneActionPerformed
+
+    private void AggiornaMagazzinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AggiornaMagazzinoActionPerformed
+            new AggiornaMagazzino().setVisible(true);
+            this.setVisible(false); 
+    }//GEN-LAST:event_AggiornaMagazzinoActionPerformed
+
+    private void GestioneScorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestioneScorteActionPerformed
+            new GestioneScorte().setVisible(true);
+            this.setVisible(false); 
+    }//GEN-LAST:event_GestioneScorteActionPerformed
+
+    private void NotificheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificheActionPerformed
+            new Notifiche().setVisible(true);
+            this.setVisible(false); 
+    }//GEN-LAST:event_NotificheActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -140,9 +199,12 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AggiornaMagazzino;
+    private javax.swing.JButton GestionePrenotazione;
+    private javax.swing.JButton GestioneScorte;
+    private javax.swing.JButton Notifiche;
     private javax.swing.JLabel home_benvenuto;
     private javax.swing.JButton home_bottoneLogout;
-    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

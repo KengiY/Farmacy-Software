@@ -64,7 +64,13 @@ public class GestioneScorte extends javax.swing.JFrame {
         bottoneVisualizzaScorte.setText("Visualizza Scorte");
         bottoneVisualizzaScorte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneVisualizzaScorteActionPerformed(evt);
+                try {
+                    bottoneVisualizzaScorteActionPerformed(evt);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 

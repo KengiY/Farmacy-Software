@@ -130,7 +130,13 @@ public class VisualizzaScorte extends javax.swing.JFrame {
         bottoneCerca.setText("Cerca");
         bottoneCerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneCercaActionPerformed(evt);
+                try {
+                    bottoneCercaActionPerformed(evt);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
         PannelloRicerca.add(bottoneCerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 80, 30));

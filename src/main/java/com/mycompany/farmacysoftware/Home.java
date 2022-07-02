@@ -3,7 +3,8 @@ package com.mycompany.farmacysoftware;
 import com.mycompany.farmacysoftware.Agg_Magazzino.AggiornaMagazzino;
 import com.mycompany.farmacysoftware.Autenticazione.Login;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
-import com.mycompany.farmacysoftware.G_Scorte.GestioneScorte;
+import com.mycompany.farmacysoftware.G_Scorte.VisualizzaScorte;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -154,7 +155,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_AggiornaMagazzinoActionPerformed
 
     private void GestioneScorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestioneScorteActionPerformed
-            new GestioneScorte().setVisible(true);
+            new VisualizzaScorte().setVisible(true);
             this.setVisible(false); 
     }//GEN-LAST:event_GestioneScorteActionPerformed
 

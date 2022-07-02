@@ -4,7 +4,8 @@
  */
 package com.mycompany.farmacysoftware.G_OrdineCorriere;
 
-import com.mycompany.farmacysoftware.G_OrdineCorriere.GestioneOrdineCorriere;
+
+import com.mycompany.farmacysoftware.HomeCorriere;
 
 /**
  *
@@ -101,7 +102,7 @@ public class VisualizzaOrdineCorriere extends javax.swing.JFrame {
     }//GEN-LAST:event_VisualizzaStatoActionPerformed
 
     private void IndietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndietroActionPerformed
-        new GestioneOrdineCorriere().setVisible(true);
+        new HomeCorriere().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_IndietroActionPerformed
 

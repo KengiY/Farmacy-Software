@@ -5,18 +5,19 @@
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
 import com.mycompany.farmacysoftware.G_Prenotazione.ModificaAnnullaOrdine;
+import com.mycompany.farmacysoftware.G_Prenotazione.ModificaAnnullaOrdine;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author manfr
  */
-public class ModificaQuantitàOrdine extends javax.swing.JFrame {
+public class ModificaOrdine extends javax.swing.JFrame {
 
     /**
      * Creates new form ModificaQuantitàOrdine
      */
-    public ModificaQuantitàOrdine() {
+    public ModificaOrdine() {
         initComponents();
     }
 
@@ -35,7 +36,8 @@ public class ModificaQuantitàOrdine extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        bottoneConfermaOrdine = new javax.swing.JButton();
+        bottoneConfermaModifica = new javax.swing.JButton();
+        bottoneEliminaOrdine = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,12 +69,14 @@ public class ModificaQuantitàOrdine extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        bottoneConfermaOrdine.setText("Conferma Modifica");
-        bottoneConfermaOrdine.addActionListener(new java.awt.event.ActionListener() {
+        bottoneConfermaModifica.setText("Conferma Modifica");
+        bottoneConfermaModifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneConfermaOrdineActionPerformed(evt);
+                bottoneConfermaModificaActionPerformed(evt);
             }
         });
+
+        bottoneEliminaOrdine.setText("Elimina Ordine");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,19 +86,23 @@ public class ModificaQuantitàOrdine extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bottoneConfermaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(188, 188, 188))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(bottoneConfermaModifica)
+                .addGap(34, 34, 34)
+                .addComponent(bottoneEliminaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
-                .addComponent(bottoneConfermaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bottoneConfermaModifica, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bottoneEliminaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,12 +137,12 @@ public class ModificaQuantitàOrdine extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bottoneConfermaOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneConfermaOrdineActionPerformed
+    private void bottoneConfermaModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneConfermaModificaActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Ordine Modificato");
         new ModificaAnnullaOrdine().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_bottoneConfermaOrdineActionPerformed
+    }//GEN-LAST:event_bottoneConfermaModificaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,26 +161,34 @@ public class ModificaQuantitàOrdine extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificaQuantitàOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificaOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificaQuantitàOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificaOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificaQuantitàOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificaOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificaQuantitàOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificaOrdine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificaQuantitàOrdine().setVisible(true);
+                new ModificaOrdine().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bottoneConfermaOrdine;
+    private javax.swing.JButton bottoneConfermaModifica;
+    private javax.swing.JButton bottoneEliminaOrdine;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

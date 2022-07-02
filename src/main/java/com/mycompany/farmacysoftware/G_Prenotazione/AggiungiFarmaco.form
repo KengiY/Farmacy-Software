@@ -30,8 +30,6 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="bottoneIndietro" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="bottoneHome" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSeparator1" min="-2" pref="604" max="-2" attributes="0"/>
               </Group>
@@ -50,7 +48,6 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="bottoneHome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bottoneIndietro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -72,14 +69,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
-    </Component>
-    <Component class="javax.swing.JButton" name="bottoneHome">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Home"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottoneHomeActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bottoneIndietro">
       <Properties>
@@ -114,20 +103,12 @@
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="159" pref="159" max="-2" attributes="0"/>
-                          <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="141" max="-2" attributes="0"/>
-                              <Component id="sceltaQuantità" min="-2" pref="141" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="bottoneAggiungiAlCarrello" min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="sceltaQuantità" min="-2" pref="141" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -148,12 +129,10 @@
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
-                          <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
                           <Component id="sceltaQuantità" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="bottoneAggiungiAlCarrello" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -221,20 +200,10 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="bottoneAggiungiAlCarrello">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aggiungi al Carrello"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.Box$Filler" name="filler1">
-          <Properties>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[32767, 0]"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalGlue"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JSpinner" name="sceltaQuantit&#xe0;">
         </Component>

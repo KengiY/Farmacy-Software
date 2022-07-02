@@ -4,6 +4,8 @@
  */
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
+import com.mycompany.farmacysoftware.G_Prenotazione.ModificaOrdine;
+import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import javax.swing.JOptionPane;
 
@@ -31,7 +33,6 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        bottoneHome = new javax.swing.JButton();
         bottoneIndietro = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -44,13 +45,6 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Carrello");
-
-        bottoneHome.setText("Home");
-        bottoneHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneHomeActionPerformed(evt);
-            }
-        });
 
         bottoneIndietro.setText("Indietro");
         bottoneIndietro.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +76,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        bottoneConfermaOrdine.setText("Conferma Acquisto");
+        bottoneConfermaOrdine.setText("Conferma Ordine");
         bottoneConfermaOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bottoneConfermaOrdineActionPerformed(evt);
@@ -90,6 +84,11 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         });
 
         bottoneModificaOrdine.setText("Modifica Ordine");
+        bottoneModificaOrdine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneModificaOrdineActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,9 +135,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bottoneIndietro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bottoneHome)))
+                                .addComponent(bottoneIndietro)))
                         .addGap(0, 10, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -151,7 +148,6 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(bottoneHome)
                     .addComponent(bottoneIndietro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,14 +165,16 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
 
-    private void bottoneHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bottoneHomeActionPerformed
-
     private void bottoneConfermaOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneConfermaOrdineActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Ordine Confermato");
     }//GEN-LAST:event_bottoneConfermaOrdineActionPerformed
+
+    private void bottoneModificaOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneModificaOrdineActionPerformed
+        // TODO add your handling code here:
+        new ModificaOrdine().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bottoneModificaOrdineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +213,6 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bottoneConfermaOrdine;
-    private javax.swing.JButton bottoneHome;
     private javax.swing.JButton bottoneIndietro;
     private javax.swing.JButton bottoneModificaOrdine;
     private javax.swing.JLabel jLabel1;

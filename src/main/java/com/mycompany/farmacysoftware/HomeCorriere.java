@@ -4,8 +4,8 @@
  */
 package com.mycompany.farmacysoftware;
 
-import com.mycompany.farmacysoftware.G_OrdineCorriere.GestioneOrdineCorriere;
 import com.mycompany.farmacysoftware.Autenticazione.Login;
+import com.mycompany.farmacysoftware.G_OrdineCorriere.VisualizzaOrdineCorriere;
 
 /**
  *
@@ -109,7 +109,7 @@ public class HomeCorriere extends javax.swing.JFrame {
     }//GEN-LAST:event_home_bottoneLogoutActionPerformed
 
     private void GestioneOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestioneOrdineActionPerformed
-            new GestioneOrdineCorriere().setVisible(true);
+            new VisualizzaOrdineCorriere().setVisible(true);
             this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_GestioneOrdineActionPerformed
 

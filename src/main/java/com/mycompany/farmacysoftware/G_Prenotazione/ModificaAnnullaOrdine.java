@@ -33,7 +33,6 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
 
         labelModificaAnnullaOrdine = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        bottoneHome = new javax.swing.JButton();
         bottoneIndietro = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -46,13 +45,6 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
 
         labelModificaAnnullaOrdine.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         labelModificaAnnullaOrdine.setText("Modifica / Annulla Ordine");
-
-        bottoneHome.setText("Home");
-        bottoneHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneHomeActionPerformed(evt);
-            }
-        });
 
         bottoneIndietro.setText("Indietro");
         bottoneIndietro.addActionListener(new java.awt.event.ActionListener() {
@@ -111,25 +103,25 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bottoneAnnulla, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bottoneModifica, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(bottoneAnnulla, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(bottoneModifica, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bottoneAnnulla)
-                .addGap(18, 18, 18)
-                .addComponent(bottoneModifica)
-                .addGap(54, 54, 54))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bottoneModifica)
+                    .addComponent(bottoneAnnulla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(81, 81, 81))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,11 +136,8 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(labelModificaAnnullaOrdine)
-                        .addGap(229, 229, 229)
-                        .addComponent(bottoneIndietro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bottoneHome)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bottoneIndietro))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator1)))
@@ -160,7 +149,6 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelModificaAnnullaOrdine)
-                    .addComponent(bottoneHome)
                     .addComponent(bottoneIndietro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,7 +162,7 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
 
     private void bottoneModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneModificaActionPerformed
         // TODO add your handling code here:
-        new ModificaQuantitàOrdine().setVisible(true);
+        new ModificaOrdine().setVisible(true);
         this.setVisible(false);
         
     }//GEN-LAST:event_bottoneModificaActionPerformed
@@ -190,12 +178,6 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
         new GestionePrenotazione().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
-
-    private void bottoneHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneHomeActionPerformed
-        // TODO add your handling code here:
-        new Home().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_bottoneHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,7 +228,6 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bottoneAnnulla;
-    private javax.swing.JButton bottoneHome;
     private javax.swing.JButton bottoneIndietro;
     private javax.swing.JButton bottoneModifica;
     private javax.swing.JPanel jPanel1;

@@ -8,6 +8,8 @@ package com.mycompany.farmacysoftware.G_Scorte;
 import com.mycompany.farmacysoftware.Home;
 import java.awt.event.ActionEvent;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,8 +37,6 @@ public class VisualizzaScorte extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        bottoneHome = new javax.swing.JButton();
         bottoneIndietro = new javax.swing.JButton();
         PannelloRicerca = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -48,20 +48,12 @@ public class VisualizzaScorte extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 200));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Visualizza Scorte");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 27, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 59, 603, -1));
-
-        bottoneHome.setText("Home");
-        bottoneHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneHomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bottoneHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 31, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         bottoneIndietro.setText("Indietro");
         bottoneIndietro.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +61,7 @@ public class VisualizzaScorte extends javax.swing.JFrame {
                 bottoneIndietroActionPerformed(evt);
             }
         });
-        getContentPane().add(bottoneIndietro, new org.netbeans.lib.awtextra.AbsoluteConstraints(477, 31, -1, -1));
+        getContentPane().add(bottoneIndietro, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
 
         PannelloRicerca.setBackground(new java.awt.Color(0, 102, 102));
         PannelloRicerca.setForeground(new java.awt.Color(242, 242, 242));
@@ -149,7 +141,7 @@ public class VisualizzaScorte extends javax.swing.JFrame {
         });
         PannelloRicerca.add(bottoneVisualizza, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
 
-        getContentPane().add(PannelloRicerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 64, 670, 520));
+        getContentPane().add(PannelloRicerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 54, 670, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,12 +151,6 @@ public class VisualizzaScorte extends javax.swing.JFrame {
         new Home().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
-
-    private void bottoneHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneHomeActionPerformed
-        // TODO add your handling code here:
-        new Home().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_bottoneHomeActionPerformed
 
     private void bottoneCercaActionPerformed(ActionEvent evt) throws ClassNotFoundException, SQLException {//GEN-FIRST:event_bottoneCercaActionPerformed
         // TODO add your handling code here:
@@ -264,13 +250,11 @@ public class VisualizzaScorte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PannelloRicerca;
     private javax.swing.JButton bottoneCerca;
-    private javax.swing.JButton bottoneHome;
     private javax.swing.JButton bottoneIndietro;
     private javax.swing.JButton bottoneVisualizza;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

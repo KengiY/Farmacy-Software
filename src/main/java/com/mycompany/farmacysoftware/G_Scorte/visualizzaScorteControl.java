@@ -1,28 +1,14 @@
 package com.mycompany.farmacysoftware.G_Scorte;
 
+import java.util.LinkedList;
+
+
 public class visualizzaScorteControl {
+    private LinkedList<Farmaco> listafarmaci = new LinkedList<Farmaco>();
+    private Farmaco farmaco;
 
-    private String nome;
-    private String tipo; //0 da banco - 1 non da banco
-
-    public visualizzaScorteControl() {
-        this.nome = nome;
-        this.tipo = tipo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void CollegamentoDBMS(){
+    
     }
 }
+

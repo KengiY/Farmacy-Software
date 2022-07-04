@@ -99,9 +99,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="371" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="bottoneModifica" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="bottoneAnnulla" alignment="3" max="32767" attributes="0"/>
@@ -153,6 +153,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="bottoneModifica">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\manfr\Documents\NetBeansProjects\FarmacySoftware\icon\icons8-modifica-il-calendario-24.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Modifica"/>
           </Properties>
           <Events>
@@ -161,6 +164,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="bottoneAnnulla">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\manfr\Documents\NetBeansProjects\FarmacySoftware\icon\icons8-x-24.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Annulla"/>
           </Properties>
           <Events>

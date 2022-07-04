@@ -61,7 +61,7 @@ public class ModificaOrdine extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -70,6 +70,7 @@ public class ModificaOrdine extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        bottoneConfermaModifica.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-invia-30.png")); // NOI18N
         bottoneConfermaModifica.setText("Conferma Modifica");
         bottoneConfermaModifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +78,13 @@ public class ModificaOrdine extends javax.swing.JFrame {
             }
         });
 
+        bottoneEliminaOrdine.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-x-24.png")); // NOI18N
         bottoneEliminaOrdine.setText("Elimina Ordine");
+        bottoneEliminaOrdine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneEliminaOrdineActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,13 +92,13 @@ public class ModificaOrdine extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(100, 100, 100)
+                .addComponent(bottoneEliminaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(bottoneConfermaModifica)
-                .addGap(34, 34, 34)
-                .addComponent(bottoneEliminaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,6 +145,10 @@ public class ModificaOrdine extends javax.swing.JFrame {
         new ModificaAnnullaOrdine().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneConfermaModificaActionPerformed
+
+    private void bottoneEliminaOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneEliminaOrdineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bottoneEliminaOrdineActionPerformed
 
     /**
      * @param args the command line arguments

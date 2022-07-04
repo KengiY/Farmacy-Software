@@ -5,7 +5,7 @@
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
-import com.mycompany.farmacysoftware.Home;
+import com.mycompany.farmacysoftware.HomeFarmacista;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,6 +80,7 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        bottoneModifica.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-modifica-il-calendario-24.png")); // NOI18N
         bottoneModifica.setText("Modifica");
         bottoneModifica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +88,7 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
             }
         });
 
+        bottoneAnnulla.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-x-24.png")); // NOI18N
         bottoneAnnulla.setText("Annulla");
         bottoneAnnulla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,9 +114,9 @@ public class ModificaAnnullaOrdine extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bottoneModifica)
                     .addComponent(bottoneAnnulla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

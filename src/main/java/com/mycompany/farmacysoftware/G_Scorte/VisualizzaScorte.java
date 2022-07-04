@@ -5,7 +5,7 @@
 package com.mycompany.farmacysoftware.G_Scorte;
 
 
-import com.mycompany.farmacysoftware.Home;
+import com.mycompany.farmacysoftware.HomeFarmacista;
 import java.awt.event.ActionEvent;
 import java.sql.*;
 import java.util.logging.Level;
@@ -47,6 +47,7 @@ public class VisualizzaScorte extends javax.swing.JFrame {
         bottoneVisualizza = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Farmacy Software 1.0");
         setLocation(new java.awt.Point(600, 200));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,13 +113,15 @@ public class VisualizzaScorte extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(2).setHeaderValue("Quantità");
         }
 
-        PannelloRicerca.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 650, 380));
+        PannelloRicerca.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 650, 380));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(242, 242, 242));
         jLabel2.setText("Cerca il Farmaco:");
-        PannelloRicerca.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 120, 30));
-        PannelloRicerca.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 300, 30));
+        PannelloRicerca.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 120, 30));
+        PannelloRicerca.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 320, 30));
 
+        bottoneCerca.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-visualizza-file-24.png")); // NOI18N
         bottoneCerca.setText("Cerca");
         bottoneCerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,15 +134,16 @@ public class VisualizzaScorte extends javax.swing.JFrame {
                 }
             }
         });
-        PannelloRicerca.add(bottoneCerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 80, 30));
+        PannelloRicerca.add(bottoneCerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 100, 30));
 
+        bottoneVisualizza.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-visualizza-titolo-30.png")); // NOI18N
         bottoneVisualizza.setText("Visualizza");
         bottoneVisualizza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bottoneVisualizzaActionPerformed(evt);
             }
         });
-        PannelloRicerca.add(bottoneVisualizza, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
+        PannelloRicerca.add(bottoneVisualizza, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 140, 30));
 
         getContentPane().add(PannelloRicerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 54, 670, 530));
 
@@ -148,7 +152,7 @@ public class VisualizzaScorte extends javax.swing.JFrame {
 
     private void bottoneIndietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIndietroActionPerformed
         // TODO add your handling code here:
-        new Home().setVisible(true);
+        new HomeFarmacista().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
 

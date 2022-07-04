@@ -42,6 +42,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Farmacy Software");
         setLocation(new java.awt.Point(600, 200));
         setResizable(false);
 
@@ -78,6 +79,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        bottoneConfermaOrdine.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-account-verificato-30.png")); // NOI18N
         bottoneConfermaOrdine.setText("Conferma Ordine");
         bottoneConfermaOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +87,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
             }
         });
 
+        bottoneModificaOrdine.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-modifica-il-calendario-24.png")); // NOI18N
         bottoneModificaOrdine.setText("Modifica Ordine");
         bottoneModificaOrdine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

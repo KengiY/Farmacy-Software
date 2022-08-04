@@ -51,10 +51,7 @@ public class ModificaOrdine extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"AAA", "2"},
-                {"e9opsa", "41"},
-                {"pfdo", "33"},
-                {"pojk", "2"}
+
             },
             new String [] {
                 "Nome", "Quantità"

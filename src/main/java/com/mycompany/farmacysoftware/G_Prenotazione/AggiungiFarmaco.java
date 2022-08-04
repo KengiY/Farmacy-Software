@@ -6,6 +6,15 @@ package com.mycompany.farmacysoftware.G_Prenotazione;
 
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import com.mycompany.farmacysoftware.HomeFarmacista;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -63,17 +72,12 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Prova 1", "Banco"},
-                {"Prova 2", "N. Banco"},
-                {"Prova 3", "Banco"},
-                {"Prova 4 ", "Banco"},
                 {null, null}
             },
             new String [] {
                 "Nome", "Tipo Farmaco"
             }
         ));
-        jTable2.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(jTable2);
 
         bottoneAggiungiAlCarrello.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-carrello-caricato-24.png")); // NOI18N
@@ -81,6 +85,11 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
 
         bottoneCerca.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-visualizza-file-24.png")); // NOI18N
         bottoneCerca.setText("Cerca");
+        bottoneCerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneCercaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,7 +134,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
                         .addComponent(sceltaQuantità, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bottoneAggiungiAlCarrello)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,8 +159,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(bottoneIndietro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,6 +170,47 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
         new HomeFarmacista().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
+
+    private void bottoneCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneCercaActionPerformed
+        try {
+            // TODO add your handling code here:
+            
+            //Connetto al DB
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","Bruno1234");
+            
+            //Eseguo lo statement
+            Statement st = con.createStatement();
+            String query="select * from lista_farmaci";
+            ResultSet rs = st.executeQuery(query);          
+            ResultSetMetaData rsmd = rs.getMetaData();
+            DefaultTableModel model;
+            model = tblData.getModel();
+            
+            String id;
+            String nome;
+            String quantità;
+            
+            while(rs.next()){
+                id=rs.getString(1);
+                nome=rs.getString(2);
+                quantità=rs.getString(3);
+                String[] row = {id, nome, quantità};
+                model.addRow(row);               
+            }   
+            
+            st.close();
+            con.close();
+     
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AggiungiFarmaco.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AggiungiFarmaco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_bottoneCercaActionPerformed
 
     /**
      * @param args the command line arguments

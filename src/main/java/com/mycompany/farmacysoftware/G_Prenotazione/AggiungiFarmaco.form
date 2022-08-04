@@ -50,8 +50,7 @@
                   <Component id="bottoneIndietro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,7 +134,7 @@
                           <Component id="bottoneAggiungiAlCarrello" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,24 +163,11 @@
             <Component class="javax.swing.JTable" name="jTable2">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="2" rowCount="5">
-                    <Column editable="true" title="Nome" type="java.lang.Object">
-                      <Data value="Prova 1"/>
-                      <Data value="Prova 2"/>
-                      <Data value="Prova 3"/>
-                      <Data value="Prova 4 "/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="true" title="Tipo Farmaco" type="java.lang.Object">
-                      <Data value="Banco"/>
-                      <Data value="N. Banco"/>
-                      <Data value="Banco"/>
-                      <Data value="Banco"/>
-                      <Data value="null"/>
-                    </Column>
+                  <Table columnCount="2" rowCount="1">
+                    <Column editable="true" title="Nome" type="java.lang.Object"/>
+                    <Column editable="true" title="Tipo Farmaco" type="java.lang.Object"/>
                   </Table>
                 </Property>
-                <Property name="cellSelectionEnabled" type="boolean" value="true"/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
@@ -220,6 +206,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cerca"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottoneCercaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

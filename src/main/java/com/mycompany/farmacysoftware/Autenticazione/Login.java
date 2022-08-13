@@ -185,10 +185,10 @@ public class Login extends javax.swing.JFrame {
         try
         {
             int log = 1;
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","Bruno1234");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_farmacia","root","Bruno1234");
             System.out.println("Connected to Database");
             Statement st = (Statement)conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from user_infopass");
+            ResultSet rs = st.executeQuery("select * from credenziali_farmacista");
             
             //Control
             while(rs.next())

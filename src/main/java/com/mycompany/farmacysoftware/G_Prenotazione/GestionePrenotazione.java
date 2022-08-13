@@ -4,6 +4,8 @@
  */
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
+import com.mycompany.farmacysoftware.HomeFarmacista;
+
 /**
  *
  * @author manfr
@@ -27,7 +29,7 @@ public class GestionePrenotazione extends javax.swing.JFrame {
     private void initComponents() {
 
         labelGestionePrenotazione = new javax.swing.JLabel();
-        bottoneHome = new javax.swing.JButton();
+        bottoneIndietro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         bottoneAggiungiFarmaco = new javax.swing.JButton();
         bottoneVisualizzaCarrello = new javax.swing.JButton();
@@ -46,7 +48,12 @@ public class GestionePrenotazione extends javax.swing.JFrame {
         labelGestionePrenotazione.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         labelGestionePrenotazione.setText("Gestione Prenotazione");
 
-        bottoneHome.setText("Indietro");
+        bottoneIndietro.setText("Indietro");
+        bottoneIndietro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneIndietroActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -133,7 +140,7 @@ public class GestionePrenotazione extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelGestionePrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bottoneHome)
+                .addComponent(bottoneIndietro)
                 .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -143,7 +150,7 @@ public class GestionePrenotazione extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelGestionePrenotazione, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(bottoneHome))
+                    .addComponent(bottoneIndietro))
                 .addGap(7, 7, 7)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -178,6 +185,13 @@ public class GestionePrenotazione extends javax.swing.JFrame {
         new PrenotazioniAutomatiche().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottonePrenotazioniAutomaticheActionPerformed
+
+    private void bottoneIndietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIndietroActionPerformed
+        // TODO add your handling code here:
+        new HomeFarmacista().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_bottoneIndietroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,7 +231,7 @@ public class GestionePrenotazione extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bottoneAggiungiFarmaco;
-    private javax.swing.JButton bottoneHome;
+    private javax.swing.JButton bottoneIndietro;
     private javax.swing.JButton bottoneModificaeAnnulla;
     private javax.swing.JButton bottonePrenotazioniAutomatiche;
     private javax.swing.JButton bottoneVisualizzaCarrello;

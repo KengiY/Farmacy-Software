@@ -32,7 +32,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelGestionePrenotazione" min="-2" pref="216" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="bottoneHome" min="-2" max="-2" attributes="0"/>
+              <Component id="bottoneIndietro" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel2" max="32767" attributes="0"/>
@@ -44,7 +44,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelGestionePrenotazione" alignment="3" pref="40" max="32767" attributes="0"/>
-                  <Component id="bottoneHome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bottoneIndietro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -61,10 +61,13 @@
         <Property name="text" type="java.lang.String" value="Gestione Prenotazione"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="bottoneHome">
+    <Component class="javax.swing.JButton" name="bottoneIndietro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Indietro"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottoneIndietroActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>

@@ -169,6 +169,7 @@ public class HomeCorriere extends javax.swing.JFrame {
     private void NotificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificaActionPerformed
         // TODO add your handling code here:
         new Notifiche().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NotificaActionPerformed
 
     /**

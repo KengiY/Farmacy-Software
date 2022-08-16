@@ -7,6 +7,7 @@ package com.mycompany.farmacysoftware.Autenticazione;
  */
 
 
+import Control.ControlLogin;
 import com.mycompany.farmacysoftware.HomeFarmacista;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -181,65 +182,14 @@ public class Login extends javax.swing.JFrame {
 
         String user = username.getText();
         String pass = password.getText();
-        
-        try
-        {
-            int log = 1;
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_farmacia","root","Bruno1234");
-            System.out.println("Connected to Database");
-            Statement st = (Statement)conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from credenziali_farmacista");
-            
-            //Control
-            while(rs.next())
-            {
-                if (rs.getString(1).equals(user) && rs.getString(2).equals(pass))
-                {
-                    log = 0;
-                    System.out.println(log);
-                    break;
-                }
-                
-                
-            }
-            
-            if(log == 0){
-                new HomeFarmacista().setVisible(true);
-                this.setVisible(false); 
-                log = 1;
-            }else{
-                JOptionPane.showMessageDialog(null, "Password Errata");
-            }
-            
-        
+        ControlLogin cl = new ControlLogin(user, pass);
+
+        try {
+            cl.checkLogin();
+
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-            
-            
-        
-        
-        
-        
-        
-        /*
-        Controllo User e Password
-        if(user.equals("user") && pass.equals("password")){
-            new HomeFarmacista().setVisible(true);
-            this.setVisible(false);
-        }else if (user.equals("") || user.equals("")){
-            JOptionPane.showMessageDialog(null, "Inserire i campi");
-        }else{
-            JOptionPane.showMessageDialog(null, "Password Errata");
-        }
-        **/
-        
-        
-        
-      
-        
         
     }//GEN-LAST:event_bottoneLoginActionPerformed
 

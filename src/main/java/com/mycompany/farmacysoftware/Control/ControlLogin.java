@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Control;
+package com.mycompany.farmacysoftware.Control;
 import com.mycompany.farmacysoftware.Autenticazione.Login;
 import com.mycompany.farmacysoftware.HomeCorriere;
 import com.mycompany.farmacysoftware.HomeDipendenteAzienda;
@@ -20,18 +20,20 @@ import javax.swing.JOptionPane;
 public class ControlLogin {
         String user;
         String pass;
+        
         public ControlLogin(String user, String pass){
             this.user=user;
             this.pass=pass;
         }
 
+        
         public void checkLogin() throws SQLException{
             Connection conn= null;
             char res= user.charAt(0);
             if(res=='f'){
                 try{
                     int log = 1;
-                    conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_farmacia","root", "Manfro1234");
+                    conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_farmacia","root", "Bruno1234");
                     if(conn!=null){
                         System.out.println("connection done");
                     }
@@ -66,7 +68,7 @@ public class ControlLogin {
             }else if(res=='d'){
                 try{
                 int log = 1;
-                    conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_azienda","root", "Manfro1234");
+                    conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_azienda","root", "Bruno1234");
                     if(conn!=null){
                         System.out.println("connection done");
                     }
@@ -101,7 +103,7 @@ public class ControlLogin {
             }else if(res=='c'){
                 try{
                 int log = 1;
-                    conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_azienda","root", "Manfro1234");
+                    conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_azienda","root", "Bruno1234");
                     if(conn!=null){
                         System.out.println("connection done");
                     }

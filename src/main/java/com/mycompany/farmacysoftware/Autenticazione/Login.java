@@ -7,16 +7,12 @@ package com.mycompany.farmacysoftware.Autenticazione;
  */
 
 
-import Control.ControlLogin;
-import com.mycompany.farmacysoftware.HomeFarmacista;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import com.mycompany.farmacysoftware.Control.ControlLogin;
+
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.*;
-        
 public class Login extends javax.swing.JFrame {
 
     /**

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.farmacysoftware.G_OrdineDipendente;
+package Control;
 import com.mycompany.farmacysoftware.G_OrdineCorriere.Ordine;
 import java.util.LinkedList;
 

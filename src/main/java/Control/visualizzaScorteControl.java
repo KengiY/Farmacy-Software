@@ -1,5 +1,6 @@
-package com.mycompany.farmacysoftware.G_Scorte;
+package Control;
 
+import com.mycompany.farmacysoftware.G_Scorte.Farmaco;
 import java.util.LinkedList;
 
 

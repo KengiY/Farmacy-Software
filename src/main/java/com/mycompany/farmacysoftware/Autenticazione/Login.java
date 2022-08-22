@@ -7,18 +7,16 @@ package com.mycompany.farmacysoftware.Autenticazione;
  */
 
 
-<<<<<<< Upstream, based on origin/master
-import com.mycompany.farmacysoftware.Control.ControlLogin;
 
-=======
 import Control.ControlLogin;
 import com.mycompany.farmacysoftware.HomeFarmacista;
 import java.sql.Connection;
 import java.sql.DriverManager;
->>>>>>> 72b2d02 Aggiornamento ho cambiato alcune cose
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -182,14 +180,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void bottoneLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneLoginActionPerformed
-        String user = username.getText();
+
+    String user = username.getText();
         String pass = password.getText();
         ControlLogin cl = new ControlLogin(user, pass);
-<<<<<<< Upstream, based on origin/master
-
-        try {
-            cl.checkLogin();
-=======
         int pl;
         try {
             cl.checkLogin();
@@ -200,15 +194,10 @@ public class Login extends javax.swing.JFrame {
             }
             
             
->>>>>>> 72b2d02 Aggiornamento ho cambiato alcune cose
 
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-<<<<<<< Upstream, based on origin/master
-=======
-
->>>>>>> 72b2d02 Aggiornamento ho cambiato alcune cose
+        }    
         
     }//GEN-LAST:event_bottoneLoginActionPerformed
 

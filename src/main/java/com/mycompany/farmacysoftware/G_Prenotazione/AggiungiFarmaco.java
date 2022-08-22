@@ -4,7 +4,8 @@
  */
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
-import com.Control.ControlDiRicercaFarmaci;
+
+import Control.ControlDiRicercaFarmaci;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import com.mycompany.farmacysoftware.HomeFarmacista;
 import java.sql.Connection;
@@ -40,7 +41,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
      */
     public AggiungiFarmaco() {
         initComponents();
-        //pippo
+        carica_tabella();
     }
 
     /**
@@ -92,11 +93,6 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
                 "Nome", "Tipo Farmaco"
             }
         ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTable2);
 
         bottoneAggiungiAlCarrello.setText("Aggiungi al Carrello");
@@ -119,8 +115,8 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
                         .addComponent(labelCerca)
                         .addGap(18, 18, 18)
                         .addComponent(barraDiRicerca, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bottoneCerca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bottoneCerca))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -138,18 +134,19 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bottoneCerca)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(barraDiRicerca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelCerca))
-                    .addComponent(bottoneCerca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(labelCerca)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
                         .addComponent(sceltaQuantità, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bottoneAggiungiAlCarrello))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bottoneAggiungiAlCarrello)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 

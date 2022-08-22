@@ -27,6 +27,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
      */
     public AggiungiFarmaco() {
         initComponents();
+        //pippo
     }
 
     /**

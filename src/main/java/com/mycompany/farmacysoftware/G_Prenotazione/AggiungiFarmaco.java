@@ -8,17 +8,21 @@ package com.mycompany.farmacysoftware.G_Prenotazione;
 import Control.ControlDiRicercaFarmaci;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import com.mycompany.farmacysoftware.HomeFarmacista;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
-import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.*;
@@ -32,8 +36,6 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
     LinkedList<String> name= new LinkedList<String>();
     LinkedList<String> ad= new LinkedList<String>();
     DefaultTableModel tb1Model;
-    String clicked_element;
-    
     /**
      * Creates new form AggiungiFarmaco
      */
@@ -90,20 +92,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
             new String [] {
                 "Nome", "Tipo Farmaco"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable2);
 
         bottoneAggiungiAlCarrello.setText("Aggiungi al Carrello");
@@ -191,7 +180,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
 
     private void bottoneIndietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIndietroActionPerformed
         // TODO add your handling code here:
-        new GestionePrenotazione().setVisible(true);
+        new HomeFarmacista().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
 
@@ -202,20 +191,6 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
         tr.setRowFilter(RowFilter.regexFilter(br));
         
     }//GEN-LAST:event_bottoneCercaActionPerformed
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        // TODO add your handling code here:
-       
-       JTable source = (JTable)evt.getSource();
-       int row = source.rowAtPoint( evt.getPoint() );
-       int column = source.columnAtPoint( evt.getPoint() );
-       clicked_element = source.getModel().getValueAt(row, column)+""; 
-       
-        
-        
-        
-    }//GEN-LAST:event_jTable2MouseClicked
-    
     public void carica_tabella(){
                 String br= null;
                 String nome = null;

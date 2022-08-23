@@ -4,9 +4,12 @@
  */
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
+import Control.ControlDiRicercaFarmaci;
 import com.mycompany.farmacysoftware.G_Prenotazione.ModificaAnnullaOrdine;
 import com.mycompany.farmacysoftware.G_Prenotazione.ModificaAnnullaOrdine;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,11 +17,21 @@ import javax.swing.JOptionPane;
  */
 public class ModificaOrdine extends javax.swing.JFrame {
 
+    LinkedList<String> TipoID = new LinkedList<String>();
+    LinkedList<String> nomeFarmaco = new LinkedList<String>();
+    LinkedList<String> qua = new LinkedList<String>();
+    LinkedList<String> nOrdine = new LinkedList<String>();
+    
+    DefaultTableModel tbModel ;
+    
+    
     /**
      * Creates new form ModificaQuantitàOrdine
      */
     public ModificaOrdine() {
         initComponents();
+        visualizzaCarrelloModifica();
+        
     }
 
     /**
@@ -31,7 +44,7 @@ public class ModificaOrdine extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        bottone_indietro = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -45,7 +58,12 @@ public class ModificaOrdine extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Modifica Ordine");
 
-        jButton1.setText("Indietro");
+        bottone_indietro.setText("Indietro");
+        bottone_indietro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottone_indietroActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -54,12 +72,19 @@ public class ModificaOrdine extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Quantità"
+                "ID", "Lista Farmaci", "Quantità", "Numero Ordine"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -89,20 +114,20 @@ public class ModificaOrdine extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(bottoneEliminaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addComponent(bottoneConfermaModifica)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(93, 93, 93))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bottoneConfermaModifica, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,10 +142,12 @@ public class ModificaOrdine extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bottone_indietro)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,9 +155,10 @@ public class ModificaOrdine extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(bottone_indietro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,13 +167,51 @@ public class ModificaOrdine extends javax.swing.JFrame {
     private void bottoneConfermaModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneConfermaModificaActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Ordine Modificato");
-        new ModificaAnnullaOrdine().setVisible(true);
+        new ModificaOrdine().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneConfermaModificaActionPerformed
 
+    public void visualizzaCarrelloModifica (){
+        
+        String nome = null;
+        String id = null;
+        String quantità = null;
+        String numero_ordine = null;
+        
+        ControlDiRicercaFarmaci vc = new ControlDiRicercaFarmaci();
+        
+        vc.VisualizzaCarrello();
+        
+        TipoID = (LinkedList<String>) vc.getListI();
+        nomeFarmaco = (LinkedList<String>) vc.getListN();
+        qua = (LinkedList<String>) vc.getListQ();
+        nOrdine = (LinkedList<String>) vc.getListNO();
+        
+        String tbCarrello[] = {TipoID.getFirst(), nomeFarmaco.getFirst(), qua.getFirst(), nOrdine.getFirst()};
+        
+        while(!nomeFarmaco.isEmpty()){
+        
+            tbModel = (DefaultTableModel)jTable1.getModel();
+            tbModel.addRow(tbCarrello);
+        
+            TipoID.removeFirst();
+            nomeFarmaco.removeFirst();
+            qua.removeFirst();
+            nOrdine.removeFirst();
+        }
+    }
+    
+    
+    
     private void bottoneEliminaOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneEliminaOrdineActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bottoneEliminaOrdineActionPerformed
+
+    private void bottone_indietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottone_indietroActionPerformed
+        // TODO add your handling code here:
+        new VisualizzaCarrello().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bottone_indietroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +258,7 @@ public class ModificaOrdine extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bottoneConfermaModifica;
     private javax.swing.JButton bottoneEliminaOrdine;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bottone_indietro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

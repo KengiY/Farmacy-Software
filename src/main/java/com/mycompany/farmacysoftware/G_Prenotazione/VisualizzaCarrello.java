@@ -4,10 +4,13 @@
  */
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
+import Control.ControlDiRicercaFarmaci;
 import com.mycompany.farmacysoftware.G_Prenotazione.ModificaOrdine;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +18,18 @@ import javax.swing.JOptionPane;
  */
 public class VisualizzaCarrello extends javax.swing.JFrame {
 
+    LinkedList<String> TipoID = new LinkedList<String>();
+    LinkedList<String> nomeFarmaco = new LinkedList<String>();
+    LinkedList<String> qua = new LinkedList<String>();
+    LinkedList<String> nOrdine = new LinkedList<String>();
+    
+    DefaultTableModel tbModel ;
     /**
      * Creates new form VisualizzaCarrello
      */
     public VisualizzaCarrello() {
         initComponents();
+        visualizzaC();
     }
 
     /**
@@ -47,7 +57,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Carrello");
+        jLabel1.setText("Visualizza Carrello");
 
         bottoneIndietro.setText("Indietro");
         bottoneIndietro.addActionListener(new java.awt.event.ActionListener() {
@@ -60,17 +70,14 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Prova 1 ",  new Integer(1)},
-                {"Prova 2 ",  new Integer(13)},
-                {"Prova 3",  new Integer(4)},
-                {null, null}
+
             },
             new String [] {
-                "Nome", "Quantità"
+                "ID", "Lista Farmaci", "Quantità"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -101,14 +108,14 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
-                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bottoneModificaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bottoneConfermaOrdine, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +142,7 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
                 .addComponent(bottoneIndietro)
                 .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,6 +172,41 @@ public class VisualizzaCarrello extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Ordine Confermato");
     }//GEN-LAST:event_bottoneConfermaOrdineActionPerformed
 
+    public void visualizzaC (){
+        
+        String nome = null;
+        String id = null;
+        String quantità = null;
+        String numero_ordine = null;
+        
+        ControlDiRicercaFarmaci vc = new ControlDiRicercaFarmaci();
+        
+        vc.VisualizzaCarrello();
+        
+        TipoID = (LinkedList<String>) vc.getListI();
+        nomeFarmaco = (LinkedList<String>) vc.getListN();
+        qua = (LinkedList<String>) vc.getListQ();
+        nOrdine = (LinkedList<String>) vc.getListNO();
+        
+        String tbCarrello[] = {TipoID.getFirst(), nomeFarmaco.getFirst(), qua.getFirst(), nOrdine.getFirst()};
+        
+        while(!nomeFarmaco.isEmpty()){
+        
+            tbModel = (DefaultTableModel)jTable1.getModel();
+            tbModel.addRow(tbCarrello);
+        
+            TipoID.removeFirst();
+            nomeFarmaco.removeFirst();
+            qua.removeFirst();
+            nOrdine.removeFirst();
+        }
+    }
+    
+    
+    
+    
+    
+    
     private void bottoneModificaOrdineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneModificaOrdineActionPerformed
         // TODO add your handling code here:
         new ModificaOrdine().setVisible(true);

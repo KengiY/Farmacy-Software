@@ -4,20 +4,41 @@
  */
 package com.mycompany.farmacysoftware.Autenticazione;
 
+
+import Control.ControlRecuperoPassword;
 import com.mycompany.farmacysoftware.Autenticazione.Login;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author manfr
  */
 public class AggiornamentoPassword extends javax.swing.JFrame {
-
-    /**
-     * Creates new form RecuperoPassword
-     */
-    public AggiornamentoPassword() {
+    String user;
+    String pass;
+    
+    public AggiornamentoPassword(String user) {
         initComponents();
+        this.user = user;
+        System.out.println(user);
     }
+        public AggiornamentoPassword() {
+        initComponents();
+
+    }
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -140,11 +161,27 @@ public class AggiornamentoPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_bottoneIndietroActionPerformed
 
     private void recupero_passwordtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recupero_passwordtextActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_recupero_passwordtextActionPerformed
 
     private void bottoneConfermaRecuperoPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneConfermaRecuperoPasswordActionPerformed
-        // TODO add your handling code here:
+      pass = recupero_passwordtext.getText();
+      ControlRecuperoPassword rp= new ControlRecuperoPassword(user);
+      int pl;
+
+      rp.AggiornamentoPass(user,pass);
+      pl= rp.getlof();
+      if ( pl==1){
+      new Login().setVisible(true);
+      this.setVisible(false);
+                
+
+            
+            
+
+      }
+      
+        
     }//GEN-LAST:event_bottoneConfermaRecuperoPasswordActionPerformed
 
     /**
@@ -179,9 +216,10 @@ public class AggiornamentoPassword extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AggiornamentoPassword().setVisible(true);
+                
             }
         });
-    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bottoneConfermaRecuperoPassword;
@@ -193,4 +231,6 @@ public class AggiornamentoPassword extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField recupero_passwordtext;
     // End of variables declaration//GEN-END:variables
+
+
 }

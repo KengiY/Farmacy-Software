@@ -4,16 +4,24 @@
  */
 package com.mycompany.farmacysoftware.G_Prenotazione;
 
+
+import Control.ControlDiRicercaFarmaci;
 import com.mycompany.farmacysoftware.G_Prenotazione.GestionePrenotazione;
 import com.mycompany.farmacysoftware.HomeFarmacista;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,12 +29,17 @@ import javax.swing.table.DefaultTableModel;
  * @author manfr
  */
 public class AggiungiFarmaco extends javax.swing.JFrame {
-
+    LinkedList<String> name= new LinkedList<String>();
+    LinkedList<String> ad= new LinkedList<String>();
+    DefaultTableModel tb1Model;
+    String clicked_element;
+    
     /**
      * Creates new form AggiungiFarmaco
      */
     public AggiungiFarmaco() {
         initComponents();
+        carica_tabella();
     }
 
     /**
@@ -72,12 +85,20 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null}
+
             },
             new String [] {
                 "Nome", "Tipo Farmaco"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable2MouseClicked(evt);
@@ -85,10 +106,8 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable2);
 
-        bottoneAggiungiAlCarrello.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-carrello-caricato-24.png")); // NOI18N
         bottoneAggiungiAlCarrello.setText("Aggiungi al Carrello");
 
-        bottoneCerca.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-visualizza-file-24.png")); // NOI18N
         bottoneCerca.setText("Cerca");
         bottoneCerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +126,8 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
                         .addComponent(labelCerca)
                         .addGap(18, 18, 18)
                         .addComponent(barraDiRicerca, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bottoneCerca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bottoneCerca))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -126,18 +145,19 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bottoneCerca)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(barraDiRicerca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelCerca))
-                    .addComponent(bottoneCerca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(labelCerca)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
                         .addComponent(sceltaQuantità, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bottoneAggiungiAlCarrello))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bottoneAggiungiAlCarrello)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -150,7 +170,7 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bottoneIndietro)
-                .addContainerGap())
+                .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -171,56 +191,52 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
 
     private void bottoneIndietroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIndietroActionPerformed
         // TODO add your handling code here:
-        new HomeFarmacista().setVisible(true);
+        new GestionePrenotazione().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
 
     private void bottoneCercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneCercaActionPerformed
-        try {
-            // TODO add your handling code here:
-            
-            //Connetto al DB
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","Bruno1234");
-            
-            //Eseguo lo statement
-            Statement st = con.createStatement();
-            String query="select * from lista_farmaci";
-            ResultSet rs = st.executeQuery(query);          
-            ResultSetMetaData rsmd = rs.getMetaData();
-            DefaultTableModel model;
-            model = tblData.getModel();
-            
-            String id;
-            String nome;
-            String quantità;
-            
-            while(rs.next()){
-                id=rs.getString(1);
-                nome=rs.getString(2);
-                quantità=rs.getString(3);
-                String[] row = {id, nome, quantità};
-                model.addRow(row);               
-            }   
-            
-            st.close();
-            con.close();
-     
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AggiungiFarmaco.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(AggiungiFarmaco.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+        String br= barraDiRicerca.getText().toUpperCase();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(tb1Model);
+        jTable2.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(br));
         
     }//GEN-LAST:event_bottoneCercaActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
+       
+       JTable source = (JTable)evt.getSource();
+       int row = source.rowAtPoint( evt.getPoint() );
+       int column = source.columnAtPoint( evt.getPoint() );
+       clicked_element = source.getModel().getValueAt(row, column)+""; 
+       
+        
+        
         
     }//GEN-LAST:event_jTable2MouseClicked
+    
+    public void carica_tabella(){
+                String br= null;
+                String nome = null;
+                String id = null;
+                ControlDiRicercaFarmaci rf= new ControlDiRicercaFarmaci();
+        
+                rf.VIsualizzaFarmaci();
+        
 
+                name= (LinkedList<String>) rf.getListN();
+                ad= (LinkedList<String>) rf.getListI();
+                while(name.size()!=0){
+
+                    String tbData[]= {name.getFirst(), ad.getFirst()};
+                    
+                    
+                    tb1Model = (DefaultTableModel)jTable2.getModel();
+                    tb1Model.addRow(tbData);
+                    name.removeFirst();
+                    ad.removeFirst();
+        }}
     /**
      * @param args the command line arguments
      */
@@ -252,7 +268,9 @@ public class AggiungiFarmaco extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AggiungiFarmaco().setVisible(true);
-            }
+                
+        }
+            
         });
     }
 

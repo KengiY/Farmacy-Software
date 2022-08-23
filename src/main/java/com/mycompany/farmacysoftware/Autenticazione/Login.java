@@ -7,11 +7,16 @@ package com.mycompany.farmacysoftware.Autenticazione;
  */
 
 
-import com.mycompany.farmacysoftware.Control.ControlLogin;
 
+import Control.ControlLogin;
+import com.mycompany.farmacysoftware.HomeFarmacista;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -176,16 +181,23 @@ public class Login extends javax.swing.JFrame {
 
     private void bottoneLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneLoginActionPerformed
 
-        String user = username.getText();
+    String user = username.getText();
         String pass = password.getText();
         ControlLogin cl = new ControlLogin(user, pass);
-
+        int pl;
         try {
             cl.checkLogin();
+            pl= cl.getLog();
+            if ( pl==1){
+                new HomeFarmacista().setVisible(true);
+                this.setVisible(false);
+            }
+            
+            
 
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }    
         
     }//GEN-LAST:event_bottoneLoginActionPerformed
 

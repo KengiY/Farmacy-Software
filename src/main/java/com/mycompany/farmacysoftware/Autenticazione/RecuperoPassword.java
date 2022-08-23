@@ -4,7 +4,12 @@
  */
 package com.mycompany.farmacysoftware.Autenticazione;
 
+
+import Control.ControlRecuperoPassword;
 import com.mycompany.farmacysoftware.Autenticazione.Login;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,7 +38,7 @@ public class RecuperoPassword extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         recupero_usernametext = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        bottoneInviaRichiesta = new javax.swing.JButton();
+        BottoneInviaRichiesta = new javax.swing.JButton();
         bottoneIndietro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,9 +54,13 @@ public class RecuperoPassword extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(242, 242, 242));
         jLabel1.setText("Inserire Username:");
 
-        bottoneInviaRichiesta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bottoneInviaRichiesta.setIcon(new javax.swing.ImageIcon("C:\\Users\\manfr\\Documents\\NetBeansProjects\\FarmacySoftware\\icon\\icons8-invia-30.png")); // NOI18N
-        bottoneInviaRichiesta.setText("Invia Richiesta");
+        BottoneInviaRichiesta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BottoneInviaRichiesta.setText("Invia Richiesta");
+        BottoneInviaRichiesta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BottoneInviaRichiestaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,7 +77,7 @@ public class RecuperoPassword extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(210, Short.MAX_VALUE)
-                .addComponent(bottoneInviaRichiesta)
+                .addComponent(BottoneInviaRichiesta)
                 .addGap(191, 191, 191))
         );
         jPanel1Layout.setVerticalGroup(
@@ -81,7 +90,7 @@ public class RecuperoPassword extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bottoneInviaRichiesta)
+                .addComponent(BottoneInviaRichiesta)
                 .addContainerGap(175, Short.MAX_VALUE))
         );
 
@@ -125,6 +134,27 @@ public class RecuperoPassword extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bottoneIndietroActionPerformed
 
+    private void BottoneInviaRichiestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottoneInviaRichiestaActionPerformed
+        String user = recupero_usernametext.getText();
+        ControlRecuperoPassword rp= new ControlRecuperoPassword(user);
+        String pu;
+        int pl;
+        try{
+            rp.checkUser();
+            pu= rp.getUser();
+            pl=rp.getLog();
+            if(pl==1){
+                new AggiornamentoPassword(pu).setVisible(true);
+                this.setVisible(false);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_BottoneInviaRichiestaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -161,8 +191,8 @@ public class RecuperoPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BottoneInviaRichiesta;
     private javax.swing.JButton bottoneIndietro;
-    private javax.swing.JButton bottoneInviaRichiesta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

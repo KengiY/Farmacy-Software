@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.farmacysoftware.Control;
+package Control;
 import com.mycompany.farmacysoftware.Autenticazione.Login;
 import com.mycompany.farmacysoftware.HomeCorriere;
 import com.mycompany.farmacysoftware.HomeDipendenteAzienda;
@@ -20,13 +20,16 @@ import javax.swing.JOptionPane;
 public class ControlLogin {
         String user;
         String pass;
-        
+        int passlog;
         public ControlLogin(String user, String pass){
             this.user=user;
             this.pass=pass;
         }
-
         
+        public int getLog(){
+            return passlog;
+        }
+
         public void checkLogin() throws SQLException{
             Connection conn= null;
             char res= user.charAt(0);
@@ -55,9 +58,9 @@ public class ControlLogin {
                     }
 
                     if(log == 0){
-                        new HomeFarmacista().setVisible(true);
-                        new Login().setVisible(false);
+
                         log = 1;
+                        passlog=1;
                     }else{
                         JOptionPane.showMessageDialog(null, "Password Errata");
                     }
@@ -82,6 +85,7 @@ public class ControlLogin {
                         if (rs.getString(1).equals(user) && rs.getString(2).equals(pass))
                         {
                             log = 0;
+                            
                             System.out.println(log);
                             break;
                         }
@@ -90,9 +94,9 @@ public class ControlLogin {
                     }
 
                     if(log == 0){
-                        new HomeDipendenteAzienda().setVisible(true);
-                        new Login().setVisible(false);
+
                         log = 1;
+                        passlog=1;
                         
                     }else{
                         JOptionPane.showMessageDialog(null, "Password Errata");
@@ -125,9 +129,9 @@ public class ControlLogin {
                     }
 
                     if(log == 0){
-                        new HomeCorriere().setVisible(true);
-                        new Login().setVisible(false);
+
                         log = 1;
+                        passlog=1;
                         
                     }else{
                         JOptionPane.showMessageDialog(null, "Password Errata");
@@ -138,6 +142,8 @@ public class ControlLogin {
                 }
             }
         }
+
+
 }
   
 
